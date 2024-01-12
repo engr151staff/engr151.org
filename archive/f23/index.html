@@ -1,0 +1,2040 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ENGR 151" />
+    <meta
+      name="keywords"
+      content="ENGR151, ENGR 151, Accelerated Introduction to Computers and Programming, University of Michigan Computer Science"
+    />
+    <title>ENGR 151</title>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://umich.edu/favicon.ico"
+    />
+
+    <!-- Fomantic UI CSS library
+       https://fomantic-ui.com/introduction/getting-started.html#using-a-cdn-provider -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.1-beta.38/dist/semantic.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.1-beta.38/dist/semantic.min.js"></script>
+
+    <!-- FullCalendar JS library
+       https://fullcalendar.io/docs
+       https://fullcalendar.io/docs/google-calendar  -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+
+    <!-- Custom icons -->
+    <!-- <link href='assets/css/customfontpack.css' rel='stylesheet'/> -->
+
+    <style>
+      /**
+     * We want the sidebar toggle to remain visible as people scroll around the
+     * page. Hence, we need to "fix" its position relative to the viewer's
+     * screen.
+     */
+      #left-sidebar-toggle {
+        position: fixed;
+        right: 2em;
+        /* The labels on cards have z-index of 100. The button should appear above them! */
+        z-index: 101;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Nav bar on left side -->
+    <div
+      class="ui left vertical inverted sidebar menu labeled icon"
+      style="background-color: #1e5b5f"
+    >
+      <!-- Logo and Course Title -->
+      <div class="item">
+        <a class="ui logo icon image mini" href="#">
+          <img src="/assets/umichLogo.png" alt="logo" />
+        </a>
+        <br />
+        <br />
+        <a href="#"><b>ENGR 151</b></a>
+      </div>
+
+      <!-- Internal fragment links -->
+      <div class="item">
+        <div class="menu">
+          <a class="item" href="#thisweek"> This Week </a>
+          <a class="item" href="#Calendar"> Calendar </a>
+          <a class="item" href="#admin"> Admin Requests </a>
+          <a class="item" href="#labs"> Labs </a>
+          <a class="item" href="#projects"> Projects </a>
+          <a class="item" href="#exams"> Exams </a>
+          <a class="item" href="#people"> People </a>
+        </div>
+      </div>
+      <!-- Internal links -->
+
+      <!-- External links -->
+      <div class="menu">
+        <a
+          class="item"
+          href="https://drive.google.com/drive/folders/1-V2pqMkIrijtIMSnUjeE_Im1u7PvMkpK?usp=sharing"
+        >
+          <i class="info icon big"></i>
+          Syllabus
+        </a>
+        <a class="item" href="https://umich.instructure.com/courses/626813">
+          &nbsp;&nbsp;<i class="globe icon big"></i>
+          <p>Canvas</p>
+        </a>
+        <a
+          class="item"
+          href="https://piazza.com/umich/fall2023/engr151100fa2023/home"
+          target="_blank"
+        >
+          <i class="talk outline icon big"></i><br />
+          Piazza
+        </a>
+        <a class="item" href="https://eecsoh.eecs.umich.edu/" target="_blank">
+          <i class="help circle icon big"></i><br />
+          Office Hours
+        </a>
+        <a
+          class="item"
+          href="https://drive.google.com/drive/folders/1-V2pqMkIrijtIMSnUjeE_Im1u7PvMkpK?usp=sharing"
+          target="_blank"
+        >
+          <i class="google drive icon big"></i><br />
+          Files
+        </a>
+        <a
+          class="item"
+          href="https://www.gradescope.com/courses/591747"
+          target="_blank"
+        >
+          <i class="chart bar icon big"></i> <br />
+          Gradescope
+        </a>
+      </div>
+      <!-- External links -->
+    </div>
+    <!-- Nav bar -->
+
+    <!-- Main page  -->
+    <div class="pusher">
+      <div class="ui text container">
+        <button class="ui icon button" id="left-sidebar-toggle">
+          <i class="bars icon"></i>
+        </button>
+
+        <h1>ENGR 151: Accelerated Introduction to Computers and Programming</h1>
+        <div class="ui negative message">
+          <b style="font-size: larger;">This is an archive of the Fall 2023 site. The current site is available <a href="https://engr151.org">here</a>.</b>
+        </div>
+        <div class="inline">
+          <div class="ui brown label">Fall 2023</div>
+          <a class="ui basic secondary left pointing label" href="archive/index.html">Looking for previous terms?</a>
+
+          <!-- Example navigation links DO NOT REMOVE
+        <div class="ui blue label">Winter 2021</div>
+        <div class="ui brown label">Fall 2021</div>
+        <div class="ui olive label">Spring 2021</div>
+        <a class="ui basic blue left pointing label" href="w21">Looking for Winter 2021?</a>
+        <a class="ui basic olive left pointing label" href="sp21">Looking for Spring 2021?</a>
+        <a class="ui basic brown left pointing label" href="f21">Looking for Fall 2021?</a>
+        --></div>
+
+        <!-- Announcements -->
+        <!-- <div class="ui info message">
+        <div class="header">
+          Welcome to ENGR 151, Fall 2023!
+        </div>
+        <p>
+          We're so glad you're here!  A few announcements for first week of class:
+        </p>
+        <ul>
+          <li>Labs and Office Hours will <b>begin</b> Tuesday, September 5th</li>
+          <li>Read the <a href="https://drive.google.com/file/d/1-Ym_5mk9rbrdvedxE_sI-YRSAPNmbEFg/view?usp=sharing" target="_blank">syllabus</a></li>
+          <li>Add the exams to your calendar: <span style="color: red"><b>Oct 12,  12pm; Dec 11, 10:30am</b></span></li></li>
+        </ul>
+      </div> -->
+
+        <!-- This Week section -->
+        <div class="ui section divider"></div>
+        <h2 id="thisweek">This Week</h2>
+        <div class="ui three stackable cards">
+          <div class="ui card">
+            <div class="content" style="flex-grow: 0">
+              <div class="header">Lecture</div>
+            </div>
+            <div class="content">
+              <div class="ui feed">
+                <div class="event">
+                  <div class="content">
+                    <div class="summary">
+                      Tues/ Thurs <br />
+                      12pm-1:30pm <br /><br />
+                      Location:
+                      <a
+                        href="https://maps.studentlife.umich.edu/building/chrysler-center-continuing-engineering-education"
+                      >
+                        CHRYS 220
+                      </a>
+                      <br /><br />
+                      <a
+                        class="ui icon label"
+                        data-tooltip="Lecture slides (Umich login!)"
+                        href="https://drive.google.com/drive/folders/1-c3y9SZ0DzJgwV-bTd-IQ5GYth-6GwIQ?usp=sharing"
+                        target="_blank"
+                      >
+                        <i class="file pdf icon"></i>
+                        Lecture Slides
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <!-- / event -->
+                <!-- <div class="event">
+                <div class="content">
+                  <div class="summary">
+                    Studio recordings
+                    <a class="ui icon label" data-tooltip="Studio lecture recordings" href="https://umich.instructure.com/courses/620889/external_tools/51796" target="_blank">
+                      <i class="play icon"></i>
+                    </a>
+                  </div>
+                </div>
+              </div> <! -- / event -->
+                <!-- <div class="event">
+                <div class="content">
+                  <i class="info circle icon"></i>
+                  <a href="syllabus.html#instruction">
+                    Flexible lecture policy
+                  </a>
+                </div>
+              </div><!-- / event -->
+              </div>
+            </div>
+          </div>
+          <!-- / ui card -->
+
+          <div class="ui card">
+            <div class="content" style="flex-grow: 0">
+              <div class="header">Lab 10</div>
+            </div>
+            <div class="content">
+              <h4 class="ui header">C++ Strings</h4>
+              <div class="summary">
+                <a href="#labs">Lab Materials</a>
+              </div>
+              <!--
+            <div class="ui small feed">
+              <div class="event">
+                <div class="content">
+                  <div class="summary">
+                    <a class="disabled ui label" href="FIXME" target="_blank">
+                      <i class="file alternate icon"></i>
+                      Slides
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="ui divider"></div>
+              <div class="event">
+                <div class="content">
+                  <div class="summary">
+                    <a class="disabled ui label" href="FIXME" target="_blank">
+                      <i class="play icon"></i>
+                      Recordings
+                    </a>
+                    <a class="ui label" href="https://drive.google.com/drive/folders/1AGaYY7RxmTAe431xTqP7SFi53d8waJP2?usp=sharing" target="_blank">
+                      <i class="google drive icon"></i>
+                      All
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            --></div>
+          </div>
+          <!-- / ui card -->
+
+          <div class="ui card">
+            <div class="content" style="flex-grow: 0">
+              <div class="header">Project 4</div>
+            </div>
+            <div class="content">
+              <h4 class="ui header">Radioactive Decay</h4>
+              <div class="right aligned floating ui red label">
+                Due Dec. 1st
+              </div>
+              <div class="summary">
+                <a href="#projects">Project Materials</a>
+              </div>
+            </div>
+          </div>
+          <!-- / ui card -->
+        </div>
+        <!-- /ui three cards -->
+
+        <div class="ui section divider"></div>
+        <h2 id="admin">Admin Requests</h2>
+        <div class="ui message">
+          <!-- <div class="header" style="font-size: 10pt;">
+                        A due date for Exam Conflicts and Accommodations will be announced soon.
+                    </div><br> -->
+          <div class="content">
+            <div class="ui center aligned container">
+              <div>
+                <div class="ui large basic red icon label">
+                  <a href="https://forms.gle/WenLzwQWzhwWGQ3R7">
+                    <i class="file alternate outline icon"></i>
+                    Entry Survey
+                  </a>
+                </div>
+              </div>
+              <br />
+              <div>
+                <div class="ui large basic red icon label">
+                  <a href="https://forms.gle/H8zkUAhucsa3AMfg6">
+                    <i class="file alternate outline icon"></i>
+                    Exit Survey
+                  </a>
+                </div>
+              </div>
+              <br />
+              <div>
+                <div class="ui large basic red icon label">
+                  <a href="https://forms.gle/fuUPvdHqmVgJZK6M7">
+                    <i class="file alternate outline icon"></i>
+                    Project Extension Form
+                  </a>
+                </div>
+              </div>
+              <br />
+              <div>
+                <div class="ui large basic red icon label">
+                  <a href="https://forms.gle/mp556wBu21X8S1Yv5">
+                    <i class="file alternate outline icon"></i>
+                    Lab Extension Form
+                  </a>
+                </div>
+              </div>
+              <!-- <div data-tooltip="Extensions Require >=24 hours">
+                                <div class="ui large basic red icon label">
+                                    <a href="forms/admin">
+                                        <i class="file alternate outline icon"></i>
+                                        Administrative Requests
+                                    </a>
+                                </div>
+                            </div><br>
+                            <div data-tooltip="Please fill out before the deadline">
+                                <div class="ui large basic red icon label">
+                                    <a href="forms/lab-conflict">
+                                        <i class="file alternate outline icon"></i>
+                                        Lab Conflicts</a>
+                                </div>
+                            </div><br>
+                            <div data-tooltip="Please fill out before the deadline">
+                                <div class="ui large basic red icon label">
+                                    <a href="forms/exam-conflict">
+                                        <i class="file alternate outline icon"></i>
+                                        Exam Conflict Requests
+                                    </a>
+                                </div>
+                            </div><br>
+                            <div data-tooltip="Please fill out before the deadline">
+                                <div class="ui large basic red icon label">
+                                    <a href="forms/ssd">
+                                        <i class="file alternate outline icon"></i>
+                                        SSD Accommodation Requests</a>
+                                </div>
+                            </div> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Template announcement DO NOT REMOVE
+      <div class="ui info message">
+        <div class="header">
+          FIXME title
+        </div>
+        <p>
+          FIXME content
+        </p>
+      </div>
+      -->
+
+        <!-- Sample exam announcement -->
+        <!--
+      <div class="ui info message">
+        <div class="header">
+          Final Exam
+        </div>
+        <p>
+          The final exam is <span class="ui red text">Friday, April 22 at 8-10am ET</span>.
+          <a class="ui basic blue label" href="https://piazza.com/class/kwzgyay4mpcwl?cid=4802" target="_blank">
+            <i class="icon-piazza icon"></i>
+            Details
+          </a>
+        </p>
+        <p>
+          <a class="ui basic blue label" href="https://www.gradescope.com/courses/367737" target="_blank">
+            <i class="icon-gradescope icon"></i>
+            Gradescope
+          </a>
+          <a class="ui basic blue label" href="https://umich.zoom.us/j/96839635127" target="_blank">
+            <i class="icon video"></i>
+            Live Help
+          </a>
+          <a class="ui basic blue label" href="https://piazza.com/class/kwzgyay4mpcwl" target="_blank">
+            <i class="icon-piazza"></i>
+            Piazza Help
+          </a>
+        </p>
+        <p>
+            Piazza will only allow private posts from 7:45am the day of the final until grades are released.
+        </p>
+      </div>
+      -->
+
+        <!-- Sample Welcome announcement -->
+        <!--
+      <div class="ui info message">
+        <div class="header">
+          Welcome to EECS 485, Fall 2022!
+        </div>
+        <p>
+          We're so glad you're here!  A few announcements for first week of class:
+        </p>
+        <ul>
+          <li><b>No attendance required</b>, including the first day of class</li>
+          <li><b>Yes we have lab</b> during first week of classes</li>
+          <li><b>Sorry about the waitlist!</b>  Wolverine access handles the waitlist automatically.  Keep up with the course here at eecs485.org and get started on Project 1.</li>
+          <li>Read the <a href="syllabus.html" target="_blank">syllabus</a></li>
+        </ul>
+      </div>
+      -->
+
+        <!-- Divider between announcements and This Week -->
+        <div class="ui hidden divider"></div>
+
+        <div class="ui section hidden divider"></div>
+
+        <!-- Calendar
+
+           The FullCalendar JS library inserts a Google Calendar here.  See
+           the JavaScript source code at the end of this file.  Remember to
+           update the 'googleCalendarId' found in the JavaScript code.
+      -->
+        <div class="ui section divider"></div>
+        <h2 id="Calendar">Calendar</h2>
+        <div id="calendar"></div>
+        <div class="ui hidden divider"></div>
+
+        <div class="ui section divider"></div>
+        <h2 id="labs">Labs</h2>
+        <div class="ui three stackable cards" id="project-cards">
+          <!-- Lab 1 -->
+          <div class="ui card" id="lab-1">
+            <div class="content" style="flex-grow: 0">
+              <div class="header" style="font-size: 14pt">Lab 1</div>
+              <br />
+              <div class="meta">
+                <i>Introduction to MATLAB</i>
+              </div>
+              <br />
+              <div class="ui center aligned container">
+                <div class="ui basic teal icon label">
+                  <a
+                    href="https://drive.google.com/drive/folders/1ZqHNlbwHSgT7mCHtfHqYoC2qPFi-4lWP?usp=sharing"
+                    target="_blank"
+                  >
+                    <i class="file alternate outline icon"></i>
+                    Drive
+                  </a>
+                </div>
+                <!-- <div class="ui basic teal icon label">
+                                    <a href="homework/hw1" target="_blank"><i
+                                            class="file alternate outline icon"></i> Solutions</a>
+                                </div>
+                                <div class="ui basic teal icon label">
+                                    <a href = "homework/hw1" target="_blank">
+                                    <i class="child icon"></i> Video Answers</a>
+                                </div> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Lab 2 -->
+          <div class="ui card" id="lab-1">
+            <div class="content" style="flex-grow: 0">
+              <div class="header" style="font-size: 14pt">Lab 2</div>
+              <br />
+              <div class="meta">
+                <i>Matrices of Images</i>
+              </div>
+              <br />
+              <div class="ui center aligned container">
+                <div class="ui basic teal icon label">
+                  <a
+                    href="https://drive.google.com/drive/folders/1ZqHNlbwHSgT7mCHtfHqYoC2qPFi-4lWP?usp=sharing"
+                    target="_blank"
+                  >
+                    <i class="file alternate outline icon"></i>
+                    Drive
+                  </a>
+                </div>
+                <!-- <div class="ui basic teal icon label">
+                                  <a href="homework/hw1" target="_blank"><i
+                                          class="file alternate outline icon"></i> Solutions</a>
+                              </div>
+                              <div class="ui basic teal icon label">
+                                  <a href = "homework/hw1" target="_blank">
+                                  <i class="child icon"></i> Video Answers</a>
+                              </div> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Lab 3 -->
+          <div class="ui card" id="lab-1">
+            <div class="content" style="flex-grow: 0">
+              <div class="header" style="font-size: 14pt">Lab 3</div>
+              <br />
+              <div class="meta">
+                <i>Flow Control</i>
+              </div>
+              <br />
+              <div class="ui center aligned container">
+                <div class="ui basic teal icon label">
+                  <a
+                    href="https://drive.google.com/drive/folders/1ZqHNlbwHSgT7mCHtfHqYoC2qPFi-4lWP?usp=sharing"
+                    target="_blank"
+                  >
+                    <i class="file alternate outline icon"></i>
+                    Drive
+                  </a>
+                </div>
+                <!-- <div class="ui basic teal icon label">
+                                  <a href="homework/hw1" target="_blank"><i
+                                          class="file alternate outline icon"></i> Solutions</a>
+                              </div>
+                              <div class="ui basic teal icon label">
+                                  <a href = "homework/hw1" target="_blank">
+                                  <i class="child icon"></i> Video Answers</a>
+                              </div> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Lab 4 -->
+          <div class="ui card" id="lab-1">
+            <div class="content" style="flex-grow: 0">
+              <div class="header" style="font-size: 14pt">Lab 4</div>
+              <br />
+              <div class="meta">
+                <i>Writing/Reading File + Data Analysis</i>
+              </div>
+              <br />
+              <div class="ui center aligned container">
+                <div class="ui basic teal icon label">
+                  <a
+                    href="https://drive.google.com/drive/folders/1ZqHNlbwHSgT7mCHtfHqYoC2qPFi-4lWP?usp=sharing"
+                    target="_blank"
+                  >
+                    <i class="file alternate outline icon"></i>
+                    Drive
+                  </a>
+                </div>
+                <!-- <div class="ui basic teal icon label">
+                                <a href="homework/hw1" target="_blank"><i
+                                        class="file alternate outline icon"></i> Solutions</a>
+                            </div>
+                            <div class="ui basic teal icon label">
+                                <a href = "homework/hw1" target="_blank">
+                                <i class="child icon"></i> Video Answers</a>
+                            </div> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Lab 5 -->
+          <div class="ui card" id="lab-1">
+            <div class="content" style="flex-grow: 0">
+              <div class="header" style="font-size: 14pt">Lab 5</div>
+              <br />
+              <div class="meta">
+                <i>Intro to C++</i>
+              </div>
+              <br />
+              <div class="ui center aligned container">
+                <div class="ui basic teal icon label">
+                  <a
+                    href="https://drive.google.com/drive/folders/1ZqHNlbwHSgT7mCHtfHqYoC2qPFi-4lWP?usp=sharing"
+                    target="_blank"
+                  >
+                    <i class="file alternate outline icon"></i>
+                    Drive
+                  </a>
+                </div>
+                <!-- <div class="ui basic teal icon label">
+                                <a href="homework/hw1" target="_blank"><i
+                                        class="file alternate outline icon"></i> Solutions</a>
+                            </div>
+                            <div class="ui basic teal icon label">
+                                <a href = "homework/hw1" target="_blank">
+                                <i class="child icon"></i> Video Answers</a>
+                            </div> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Lab 6 -->
+          <div class="ui card" id="lab-1">
+            <div class="content" style="flex-grow: 0">
+              <div class="header" style="font-size: 14pt">Lab 6</div>
+              <br />
+              <div class="meta">
+                <i>More C++</i>
+              </div>
+              <br />
+              <div class="ui center aligned container">
+                <div class="ui basic teal icon label">
+                  <a
+                    href="https://drive.google.com/drive/folders/1ZqHNlbwHSgT7mCHtfHqYoC2qPFi-4lWP?usp=sharing"
+                    target="_blank"
+                  >
+                    <i class="file alternate outline icon"></i>
+                    Drive
+                  </a>
+                </div>
+                <!-- <div class="ui basic teal icon label">
+                              <a href="homework/hw1" target="_blank"><i
+                                      class="file alternate outline icon"></i> Solutions</a>
+                          </div>
+                          <div class="ui basic teal icon label">
+                              <a href = "homework/hw1" target="_blank">
+                              <i class="child icon"></i> Video Answers</a>
+                          </div> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Lab 7 -->
+          <div class="ui card" id="lab-1">
+            <div class="content" style="flex-grow: 0">
+              <div class="header" style="font-size: 14pt">Lab 7</div>
+              <br />
+              <div class="meta">
+                <i>Arrays, Functions, Recursion</i>
+              </div>
+              <br />
+              <div class="ui center aligned container">
+                <div class="ui basic teal icon label">
+                  <a
+                    href="https://drive.google.com/drive/folders/1ZqHNlbwHSgT7mCHtfHqYoC2qPFi-4lWP?usp=sharing"
+                    target="_blank"
+                  >
+                    <i class="file alternate outline icon"></i>
+                    Drive
+                  </a>
+                </div>
+                <!-- <div class="ui basic teal icon label">
+                            <a href="homework/hw1" target="_blank"><i
+                                    class="file alternate outline icon"></i> Solutions</a>
+                        </div>
+                        <div class="ui basic teal icon label">
+                            <a href = "homework/hw1" target="_blank">
+                            <i class="child icon"></i> Video Answers</a>
+                        </div> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Lab 8 -->
+          <div class="ui card" id="lab-1">
+            <div class="content" style="flex-grow: 0">
+              <div class="header" style="font-size: 14pt">Lab 8</div>
+              <br />
+              <div class="meta">
+                <i>File I/O and Vectors</i>
+              </div>
+              <br />
+              <div class="ui center aligned container">
+                <div class="ui basic teal icon label">
+                  <a
+                    href="https://drive.google.com/drive/folders/1ZqHNlbwHSgT7mCHtfHqYoC2qPFi-4lWP?usp=sharing"
+                    target="_blank"
+                  >
+                    <i class="file alternate outline icon"></i>
+                    Drive
+                  </a>
+                </div>
+                <!-- <div class="ui basic teal icon label">
+                            <a href="homework/hw1" target="_blank"><i
+                                    class="file alternate outline icon"></i> Solutions</a>
+                        </div>
+                        <div class="ui basic teal icon label">
+                            <a href = "homework/hw1" target="_blank">
+                            <i class="child icon"></i> Video Answers</a>
+                        </div> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Lab 9 -->
+          <div class="ui card" id="lab-1">
+            <div class="content" style="flex-grow: 0">
+              <div class="header" style="font-size: 14pt">Lab 9</div>
+              <br />
+              <div class="meta">
+                <i>Object Oriented Programming</i>
+              </div>
+              <br />
+              <div class="ui center aligned container">
+                <div class="ui basic teal icon label">
+                  <a
+                    href="https://drive.google.com/drive/folders/1ZqHNlbwHSgT7mCHtfHqYoC2qPFi-4lWP?usp=sharing"
+                    target="_blank"
+                  >
+                    <i class="file alternate outline icon"></i>
+                    Drive
+                  </a>
+                </div>
+                <!-- <div class="ui basic teal icon label">
+                            <a href="homework/hw1" target="_blank"><i
+                                    class="file alternate outline icon"></i> Solutions</a>
+                        </div>
+                        <div class="ui basic teal icon label">
+                            <a href = "homework/hw1" target="_blank">
+                            <i class="child icon"></i> Video Answers</a>
+                        </div> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Lab 10 -->
+          <div class="ui card" id="lab-1">
+            <div class="content" style="flex-grow: 0">
+              <div class="header" style="font-size: 14pt">Lab 10</div>
+              <br />
+              <div class="meta">
+                <i>C++ Strings</i>
+              </div>
+              <br />
+              <div class="ui center aligned container">
+                <div class="ui basic teal icon label">
+                  <a
+                    href="https://drive.google.com/drive/folders/1ZqHNlbwHSgT7mCHtfHqYoC2qPFi-4lWP?usp=sharing"
+                    target="_blank"
+                  >
+                    <i class="file alternate outline icon"></i>
+                    Drive
+                  </a>
+                </div>
+                <!-- <div class="ui basic teal icon label">
+                            <a href="homework/hw1" target="_blank"><i
+                                    class="file alternate outline icon"></i> Solutions</a>
+                        </div>
+                        <div class="ui basic teal icon label">
+                            <a href = "homework/hw1" target="_blank">
+                            <i class="child icon"></i> Video Answers</a>
+                        </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui section divider"></div>
+        <h2 id="projects">Projects</h2>
+        <div class="ui two stackable cards" id="project-cards">
+          <!-- Project 1 -->
+          <div class="ui card" id="project-1">
+            <div class="content" style="flex-grow: 0">
+              <div class="header" style="font-size: 14pt">Project 1</div>
+              <br />
+              <div class="meta">
+                <i>MATLAB Reservoir</i>
+              </div>
+              <br />
+              <div class="ui center aligned container">
+                <div class="ui basic teal icon label">
+                  <a
+                    href="https://drive.google.com/drive/folders/1Q_Kqgu6khHXfK_wtrOn0SQwuRm6Wy7wX?usp=sharing"
+                    target="_blank"
+                  >
+                    <i class="file alternate outline icon"></i>
+                    Drive
+                  </a>
+                </div>
+                <!-- <div class="ui basic teal icon label">
+                                  <a href="homework/hw1" target="_blank"><i
+                                          class="file alternate outline icon"></i> Solutions</a>
+                              </div>
+                              <div class="ui basic teal icon label">
+                                  <a href = "homework/hw1" target="_blank">
+                                  <i class="child icon"></i> Video Answers</a>
+                              </div> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="ui card" id="project-1">
+            <div class="content" style="flex-grow: 0">
+              <div class="header" style="font-size: 14pt">Project 2</div>
+              <br />
+              <div class="meta">
+                <i>Brain Imaging</i>
+              </div>
+              <br />
+              <div class="ui center aligned container">
+                <div class="ui basic teal icon label">
+                  <a
+                    href="https://drive.google.com/drive/folders/1Q_Kqgu6khHXfK_wtrOn0SQwuRm6Wy7wX?usp=sharing"
+                    target="_blank"
+                  >
+                    <i class="file alternate outline icon"></i>
+                    Drive
+                  </a>
+                </div>
+                <!-- <div class="ui basic teal icon label">
+                                <a href="homework/hw1" target="_blank"><i
+                                        class="file alternate outline icon"></i> Solutions</a>
+                            </div>
+                            <div class="ui basic teal icon label">
+                                <a href = "homework/hw1" target="_blank">
+                                <i class="child icon"></i> Video Answers</a>
+                            </div> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="ui card" id="project-1">
+            <div class="content" style="flex-grow: 0">
+              <div class="header" style="font-size: 14pt">Project 3</div>
+              <br />
+              <div class="meta">
+                <i>Rockets</i>
+              </div>
+              <br />
+              <div class="ui center aligned container">
+                <div class="ui basic teal icon label">
+                  <a
+                    href="https://drive.google.com/drive/folders/1Q_Kqgu6khHXfK_wtrOn0SQwuRm6Wy7wX?usp=sharing"
+                    target="_blank"
+                  >
+                    <i class="file alternate outline icon"></i>
+                    Drive
+                  </a>
+                </div>
+                <!-- <div class="ui basic teal icon label">
+                                <a href="homework/hw1" target="_blank"><i
+                                        class="file alternate outline icon"></i> Solutions</a>
+                            </div>
+                            <div class="ui basic teal icon label">
+                                <a href = "homework/hw1" target="_blank">
+                                <i class="child icon"></i> Video Answers</a>
+                            </div> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="ui card" id="project-1">
+            <div class="content" style="flex-grow: 0">
+              <div class="header" style="font-size: 14pt">Project 4</div>
+              <br />
+              <div class="meta">
+                <i>Radioactive Decay</i>
+              </div>
+              <br />
+              <div class="ui center aligned container">
+                <div class="ui basic teal icon label">
+                  <a
+                    href="https://drive.google.com/drive/folders/1Q_Kqgu6khHXfK_wtrOn0SQwuRm6Wy7wX?usp=sharing"
+                    target="_blank"
+                  >
+                    <i class="file alternate outline icon"></i>
+                    Drive
+                  </a>
+                </div>
+                <!-- <div class="ui basic teal icon label">
+                                <a href="homework/hw1" target="_blank"><i
+                                        class="file alternate outline icon"></i> Solutions</a>
+                            </div>
+                            <div class="ui basic teal icon label">
+                                <a href = "homework/hw1" target="_blank">
+                                <i class="child icon"></i> Video Answers</a>
+                            </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui section divider"></div>
+        <h2 id="exams">Exams</h2>
+        <div class="ui two stackable cards" id="project-cards">
+          <!-- Midterm -->
+          <div class="ui card" id="midterm">
+            <div class="content" style="flex-grow: 0">
+              <div class="header" style="font-size: 14pt">Midterm</div>
+              <br />
+              <div class="meta">
+                <i>Thursday, October 12 12-1:30pm</i>
+              </div>
+              <br />
+              <div class="ui center aligned container">
+                <!--<div class="ui basic teal icon label">
+                                    <a href="files" target="_blank">
+                                        <i class="file alternate outline icon"></i> Practice Midterms</a>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="ui basic teal icon label">
+                                    <a href="files" target="_blank"><i
+                                            class="file alternate outline icon"></i> Practice Midterms Solutions</a>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="ui basic teal icon label">
+                                    <a href="/youtube" target="_blank"><i
+                                            class="child icon"></i> Practice Midterm Walkthroughs</a>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="ui basic teal icon label">
+                                    <a href="recordings" target="_blank"><i
+                                            class="child icon"></i> Midterm Review</a>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="ui basic teal icon label">
+                                    <a href="files" target="_blank"><i
+                                            class="child icon"></i> Midterm Solutions </a>
+                                </div>-->
+              </div>
+            </div>
+          </div>
+          <div class="ui card" id="midterm">
+            <div class="content" style="flex-grow: 0">
+              <div class="header" style="font-size: 14pt">Final</div>
+              <br />
+              <div class="meta">
+                <i>Monday, December 11 10:30-12:30pm</i>
+              </div>
+              <br />
+              <div class="ui center aligned container">
+                <!--<div class="ui basic teal icon label">
+                                  <a href="files" target="_blank">
+                                      <i class="file alternate outline icon"></i> Practice Midterms</a>
+                              </div>
+                              <br>
+                              <br>
+                              <div class="ui basic teal icon label">
+                                  <a href="files" target="_blank"><i
+                                          class="file alternate outline icon"></i> Practice Midterms Solutions</a>
+                              </div>
+                              <br>
+                              <br>
+                              <div class="ui basic teal icon label">
+                                  <a href="/youtube" target="_blank"><i
+                                          class="child icon"></i> Practice Midterm Walkthroughs</a>
+                              </div>
+                              <br>
+                              <br>
+                              <div class="ui basic teal icon label">
+                                  <a href="recordings" target="_blank"><i
+                                          class="child icon"></i> Midterm Review</a>
+                              </div>
+                              <br>
+                              <br>
+                              <div class="ui basic teal icon label">
+                                  <a href="files" target="_blank"><i
+                                          class="child icon"></i> Midterm Solutions </a>
+                              </div>-->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Schedule -->
+        <!-- <h2 id="schedule">Schedule</h2>
+      <table class="ui celled striped table">
+        <thead>
+          <tr>
+            <th class="two wide">Day</th>
+            <th class="three wide">Lecture</th>
+            <th class="two wide">Lab</th>
+            <th class="one wide">Deadline</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Week 1<br>
+              Aug 28 - Sep 1
+            </td>
+            <td>
+              <p>L01 Introduction to MATLAB</p>
+              <p>L02 MATLAB: Vectors, Matrices and Functions</p>
+            </td>
+            <td>
+              No Lab
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              Week 2<br>
+              Sep 4 - 8
+            </td>
+            <td>
+              <p>L03 MATLAB: Logical Operations and Indexing</p>
+              <p>L04 Data Visualization + P1 Overview</p>
+            </td>
+            <td>Intro to MATLAB</td>
+            <td>
+              <div class="ui red horizontal basic label">
+                Project 1 due Sun Sep 10 11:59pm
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Week 3<br>
+              Sep 11 - 15
+            </td>
+            <td>
+              <p>L05 MATLAB: Data Analysis / Statistics</p>
+              <p>L06 MATLAB: Flow Control</p>
+            </td>
+            <td>Logical Arrays and Data Visualization</td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Week 4<br>
+              Sep 18 - 22
+            </td>
+            <td>
+              <p>L07 MATLAB: Data Structuers, Strings and File I/O</p>
+              <p>L08 MATLAB: Program design + P2 Overview</p>
+            </td>
+            <td>Data Analysis / Statistics / Flow Control</td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Week 5<br>
+              Sep 25 - 29
+            </td>
+            <td>
+              <p>L09 Exam 1 (Matlab) in Class</p>
+              <p>L10 Intro to C++</p>
+            </td>
+            <td>Working with Data / Strings/ File I/O</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              Week 6<br>
+              Oct 2 - 6
+            </td>
+            <td>
+              <p>L11 C++ Expressions, Operators, Selection, Loops</p>
+              <p>L12 C++ Arrays and basic Procedural Abstraction<br />
+                <span class="ui small grey text">(last lecture on midterm)</span>
+              </p>
+            </td>
+            <td>Starting with Linux, Selection, Iteration</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              Week 7<br>
+              Oct 9 - 13
+            </td>
+            <td>
+              <p>L13 C++ Debugging and Test Driven Development</p>
+              <p>L14 Strings, Streams, and File I/O</p>
+            </td>
+            <td>Arrays, Functions, Test Driven Development</td>
+            <td>
+              <div class="ui red horizontal basic label">
+                Project 3 due Sun Oct 15 11:59pm
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Week 8<br>
+              Oct 16 - 20
+            </td>
+            <td>
+              <p><i>No lecture - Fall Break</i></p>
+              <p><i>L15 C++ Procedural Abstraction II / Recursion</i></p>
+            </td>
+            <td><i>No lab</i></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              Week 9<br>
+              Oct 23 - 27
+            </td>
+            <td>
+              <p><i>L16 C++ Vectors, Structs</i></p>
+              <p>L17 C++ Vector of Vectors</p>
+            </td>
+            <td><i>Strings and file I/O Recursion</i></td>
+            <td>
+              <div class="ui red horizontal label">
+                Midterm
+                Tue Oct 24
+                7pm
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Week 10<br>
+              Oct 30 - Nov 3
+            </td>
+            <td>
+              <p>L18 Exam 2 (C++) in Class</p>
+              <p>L19 K-means</p>
+            </td>
+            <td>
+              Vectors
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td >
+              Week 11<br>
+              Nov 6 - 10
+            </td>
+            <td>
+              <p>L20 Scaling Static Pages</p>
+              <p>L21 Scaling Dynamic Pages</p>
+            </td>
+            <td>Multithreaded Debugging</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              Week 12<br>
+              Nov 13 - 17
+            </td>
+            <td>
+              <p>L22 Scaling Storage</p>
+              <p>L23 Recommender Systems</p>
+            </td>
+            <td><i>No Lab</i></td>
+            <td>
+              <div class="ui red horizontal basic label">
+                Project 4 due Sun Nov 12 11:59pm
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Week 13<br>
+              Nov 20 - 24
+            </td>
+            <td>
+              <p>L24 Ads and Auctions</p>
+              <p><i>No lecture - Thanksgiving</i></p>
+            </td>
+            <td><i>No Lab</i></td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Week 14<br>
+              Nov 27 - Dec 1
+            </td>
+            <td>
+              <p>L25 Blockchain</p>
+              <p>L26 Dark Web</p>
+            </td>
+            <td>Project 5 TBD</td>
+            <td>Project 5 Intro and MapReduce Pipelines</td> -->
+        <!-- <td>Inverted Index Servers</td>
+            <td>
+              <div class="ui red horizontal basic label">
+              Project 5 due Sun Dec 3 11:59pm
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Week 15<br>
+              Dec 4 - 8
+            </td>
+            <td>
+              <p><i>No lecture</i></p>
+            </td>
+            <td><i>No lab</i></td>
+            <td>
+              <div class="ui red horizontal label">
+                Final Fri<br>
+                Dec 8 7pm
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="ui hidden divider"></div> -->
+
+        <!-- People section -->
+        <div class="ui section divider"></div>
+        <h2 id="people">People</h2>
+        <p>
+          Reach us at
+          <a href="mailto:engr-151-staff-fall-23@umich.edu"
+            >engr-151-staff-fall-23@umich.edu</a
+          >
+        </p>
+        <div class="ui three stackable cards">
+          <div class="ui fluid card">
+            <div class="image">
+              <img src="assets/headshots/YZ.jpg" alt="Y Z head shot" />
+            </div>
+            <div class="content">
+              <div class="header">Y Z</div>
+            </div>
+
+            <!-- <div class="content">
+            <span data-tooltip="MacOS"><i class="icon apple"></i></span>
+            <span data-tooltip="Linux"><i class="icon linux"></i></span>
+            <span data-tooltip="Emacs"><i class="icon-emacs"></i></span>
+            <span data-tooltip="I raise chickens."><em data-emoji="chicken"></em></span>
+            <span data-tooltip="Goats!"><em data-emoji="goat"></em></span>
+            <span data-variation="wide fixed" data-tooltip="One of my life goals is visit every national park."><em data-emoji="hiking_boot"></em></span>
+            <span data-variation="wide fixed" data-tooltip="Recommend music for me!  I listen to a lot of WCBN, our student-run radio station."><em data-emoji="notes"></em></span>
+          </div> -->
+          </div>
+          <!-- /fluid card -->
+
+          <!-- /fluid card -->
+          <div class="ui fluid card">
+            <div class="image">
+              <img
+                src="assets/headshots/anand.jpg"
+                alt="Karan Anand head shot"
+              />
+            </div>
+            <div class="content">
+              <div class="header">Karan Anand</div>
+            </div>
+          </div>
+          <!-- /fluid card -->
+
+          <!-- /fluid card -->
+          <div class="ui fluid card">
+            <div class="image">
+              <img src="assets/headshots/hou.jpg" alt="Daniel Hou head shot" />
+            </div>
+            <div class="content">
+              <div class="header">Daniel Hou</div>
+            </div>
+          </div>
+          <!-- /fluid card -->
+
+          <!-- /fluid card -->
+          <div class="ui fluid card">
+            <div class="image">
+              <img
+                src="assets/headshots/locula.jpg"
+                alt="Aditi Locula head shot"
+              />
+            </div>
+            <div class="content">
+              <div class="header">Aditi Locula</div>
+            </div>
+          </div>
+          <!-- /fluid card -->
+
+          <!-- /fluid card -->
+          <div class="ui fluid card">
+            <div class="image">
+              <img
+                src="assets/headshots/redman.jpg"
+                alt="Peter Redman head shot"
+              />
+            </div>
+            <div class="content">
+              <div class="header">Peter Redman</div>
+            </div>
+          </div>
+          <!-- /fluid card -->
+
+          <!-- /fluid card -->
+          <div class="ui fluid card">
+            <div class="image">
+              <img
+                src="assets/headshots/shaw.jpg"
+                alt="Brandon Shaw head shot"
+              />
+            </div>
+            <div class="content">
+              <div class="header">Brandon Shaw</div>
+            </div>
+          </div>
+          <!-- /fluid card -->
+
+          <!-- BEGIN TAs
+        <div class="ui fluid card">
+          <div class="image">
+            <img
+              src="assets/headshots/reiades.jpg"
+              alt="Reina Ades head shot"
+            />
+          </div>
+          <div class="content">
+            <div class="header">Reina Ades</div>
+            <div class="description">
+              <p><i class="icon envelope"></i>reiades@umich.edu</p>
+            </div>
+          </div>
+          <div class="extra content">
+            <span data-tooltip="MacOS"><i class="icon apple"></i></span>
+            <span data-tooltip="VSCode"><i class="icon-vscode"></i></span>
+            <span data-tooltip="Xcode"><i class="icon-xcode"></i></span>
+            <span data-tooltip="I have 2 yellow labs!"
+            ><em data-emoji="dog"></em
+                                  ></span>
+            <span data-tooltip="I am a huge Celtics fan!"
+            ><em data-emoji="shamrock"></em
+                                       ></span>
+            <span data-tooltip="I spent last summer living in Israel!"
+            ><em data-emoji="airplane"></em
+                                       ></span>
+          </div>
+        </div>
+
+        <div class="ui fluid card">
+          <div class="image">
+            <img
+              src="assets/headshots/mbaveja.jpg"
+              alt="Maya Baveja head shot"
+            />
+          </div>
+          <div class="content">
+            <div class="header">Maya Baveja</div>
+            <div class="description">
+              <p><i class="icon envelope"></i>mbaveja@umich.edu</p>
+            </div>
+          </div>
+          <div class="extra content">
+            <span data-tooltip="MacOS"><i class="icon apple"></i></span>
+            <span data-tooltip="Xcode"><i class="icon-xcode"></i></span>
+            <span data-tooltip="VS Code"><i class="icon-vscode"></i></span>
+            <span data-tooltip="I'm from Ann Arbor, ask me for recs!"
+            ><em data-emoji="house"></em
+                                    ></span>
+            <span data-tooltip="I love my cat Luna."
+            ><em data-emoji="cat"></em
+                                  ></span>
+            <span data-tooltip="I love to travel."
+            ><em data-emoji="airplane"></em
+                                       ></span>
+          </div>
+        </div>
+
+        <div class="ui fluid card">
+          <div class="image">
+            <img
+              src="assets/headshots/agirdhar.jpg"
+              alt="Akanksha Girdhar head shot"
+            />
+          </div>
+          <div class="content">
+            <div class="header">Akanksha Girdhar</div>
+            <div class="description">
+              <p><i class="icon envelope"></i>agirdhar@umich.edu</p>
+            </div>
+          </div>
+          <div class="extra content">
+            <span data-tooltip="MacOS"><i class="icon apple"></i></span>
+            <span data-tooltip="VS Code"><i class="icon-vscode"></i></span>
+            <span data-tooltip="I'm from New Delhi, India."
+            ><em data-emoji="round_pushpin"></em
+                                    ></span>
+            <span data-tooltip="I'm a Marvel fan."
+            ><em data-emoji="superhero"></em
+                                    ></span>     
+            <span data-tooltip="I love sunsets."
+            ><em data-emoji="city_sunset"></em
+                                    ></span>
+            <span data-tooltip="I got into graphic design last year!"
+            ><em data-emoji="frame_photo"></em
+                                    ></span>         
+          </div>
+        </div>
+
+        <div class="ui fluid card">
+          <div class="image">
+            <img
+              src="assets/headshots/ellahath.jpg"
+              alt="Ella Hathaway head shot"
+            />
+          </div>
+          <div class="content">
+            <div class="header">Ella Hathaway</div>
+            <div class="description">
+              <p><i class="icon envelope"></i>ellahath@umich.edu</p>
+            </div>
+          </div>
+          <div class="extra content">
+            <span data-tooltip="MacOS"><i class="icon apple"></i></span>
+            <span data-tooltip="VS Code"><i class="icon-vscode"></i></span>
+            <span
+              data-tooltip="I'm a member of Impact Dance (a club dance team at UM)."
+            ><em data-emoji="dancer"></em
+                                     ></span>
+            <span
+              data-tooltip="I'm from Utah, so ask me about all of Utah's amazing national parks."
+            ><em data-emoji="camping"></em
+                                      ></span>
+            <span
+              data-tooltip="I love to ski! My favorite resort is Alta, but I also like Brighton, Solitude, and Deer Valley."
+            ><em data-emoji="skier"></em
+                                    ></span>
+          </div>
+        </div>
+
+        <div class="ui fluid card">
+          <div class="image">
+            <img
+              src="assets/headshots/hickmott.jpg"
+              alt="Cooper Hickmott head shot"
+            />
+          </div>
+          <div class="content">
+            <div class="header">Cooper Hickmott</div>
+            <div class="description">
+              <p><i class="icon envelope"></i>hickmott@umich.edu</p>
+            </div>
+          </div>
+          <div class="extra content">
+            <span data-tooltip="Windows"><i class="icon windows"></i></span>
+            <span data-tooltip="Linux"><i class="icon linux"></i></span>
+            <span data-tooltip="VS Code"><i class="icon-vscode"></i></span>
+            <span data-tooltip="I love playing piano and listening to music!"><em data-emoji="notes"></em></span>
+            <span data-tooltip="I love movies."><em data-emoji="tv"></em></span>
+            <span data-tooltip="I have 2 dogs!"><em data-emoji="dog"></em></span>
+          </div>
+        </div>
+
+        <div class="ui fluid card">
+          <div class="image">
+            <img
+              src="assets/headshots/catkims.jpg"
+              alt="Catherine Kim head shot"
+            />
+          </div>
+          <div class="content">
+            <div class="header">Catherine Kim</div>
+            <div class="description">
+              <p><i class="icon envelope"></i>catkims@umich.edu</p>
+            </div>
+          </div>
+          <div class="extra content">
+            <span data-tooltip="VS Code"><i class="icon-vscode"></i></span>
+            <span data-tooltip="Windows"><i class="icon windows"></i></span>
+            <span
+              data-tooltip="I play violin and put some song covers on SoundCloud">
+              <em data-emoji="violin"></em>
+            </span>
+            <span
+              data-tooltip="I like playing games on my Switch. Hmu with recommendations!">
+              <em data-emoji="video_game"></em>
+            </span>
+            <span
+              data-tooltip="I play soccer!">
+              <em data-emoji="soccer"></em>
+            </span>
+            <span
+              data-tooltip="Recently got back into bullet journaling!">
+              <em data-emoji="notebook_with_decorative_cover"></em>
+            </span>
+          </div>
+        </div>
+
+        <div class="ui fluid card">
+          <div class="image">
+            <img
+              src="assets/headshots/mattmayf.jpg"
+              alt="Matt Mayfield head shot"
+            />
+          </div>
+          <div class="content">
+            <div class="header">Matt Mayfield</div>
+            <div class="description">
+              <p><i class="icon envelope"></i>mattmayf@umich.edu</p>
+            </div>
+          </div>
+          <div class="extra content">
+            <span data-tooltip="Linux"><i class="icon linux"></i></span>
+            <span data-tooltip="Vim"><i class="icon-vim"></i></span>
+            <span data-tooltip="VS Code"><i class="icon-vscode"></i></span>
+            <span data-tooltip="I enjoy playing guitar (mediocrely)"
+            ><em data-emoji="guitar"></em
+                                     ></span>
+            <span
+              data-variation="wide fixed"
+              data-tooltip="I love bike touring. It's been years, but the pandemic has given me the itch to plan a long trip."
+            ><em data-emoji="man_biking"></em
+                                         ></span>
+          </div>
+        </div>
+
+        <div class="ui fluid card">
+          <div class="image">
+            <img
+              src="assets/headshots/mariamhm.jpg"
+              alt="Mariam Mahmoud head shot"
+            />
+          </div>
+          <div class="content">
+            <div class="header">Mariam Mahmoud</div>
+            <div class="description">
+              <p><i class="icon envelope"></i>mariamhm@umich.edu</p>
+            </div>
+          </div>
+          <div class="extra content">
+            <span data-tooltip="MacOS"><i class="icon apple"></i></span>
+            <span data-tooltip="XCode"><i class="icon-xcode"></i></span>
+            <span data-tooltip="VS Code"><i class="icon-vscode"></i></span>
+            <span data-tooltip="I am a competitive powerlifter!"
+            ><em data-emoji="woman_lifting_weights"></em
+                                                    ></span>
+            <span data-tooltip="I enjoy rock climbing!"
+            ><em data-emoji="woman_climbing"></em
+                                             ></span>
+            <span data-tooltip="I love watching different kinds of shows."
+            ><em data-emoji="tv"></em
+                                 ></span>
+            <span data-tooltip="I enjoy hiking and long walks."
+            ><em data-emoji="woman_walking"></em
+                                            ></span>
+          </div>
+        </div>
+
+        <div class="ui fluid card">
+          <div class="image">
+            <img
+              src="assets/headshots/santiagm.jpg"
+              alt="Santiago Medina head shot"
+            />
+          </div>
+          <div class="content">
+            <div class="header">Santiago Medina</div>
+            <div class="description">
+              <p><i class="icon envelope"></i>santiagm@umich.edu</p>
+            </div>
+          </div>
+          <div class="extra content">
+            <span data-tooltip="MacOS"><i class="icon apple"></i></span>
+            <span data-tooltip="Windows"><i class="icon windows"></i></span>
+            <span data-tooltip="I enjoy cooking. Send me recipes!"
+            ><em data-emoji="cooking"></em
+                                      ></span>
+            <span data-tooltip="Where are the best tacos in Ann Arbor?"
+            ><em data-emoji="taco"></em
+                                   ></span>
+            <span
+              data-tooltip="I love playing piano and guitar during my free time. Let's jam!"
+            ><em data-emoji="notes"></em
+                                    ></span>
+            <span
+              data-tooltip="I wanna learn to fly! I hope to start pilot training sometime in the near future"
+            ><em data-emoji="airplane"></em
+                                       ></span>
+            <span data-tooltip="Working out and eating healthy >>>"
+            ><em data-emoji="muscle"></em
+                                     ></span>
+          </div>
+        </div>
+
+        <div class="ui fluid card">
+          <div class="image">
+            <img
+              src="assets/headshots/melodell.jpg"
+              alt="Melina O'Dell head shot"
+            />
+          </div>
+          <div class="content">
+            <div class="header">Melina O'Dell</div>
+            <div class="description">
+              <p><i class="icon envelope"></i>melodell@umich.edu</p>
+            </div>
+          </div>
+          <div class="extra content">
+            <span data-tooltip="MacOS"><i class="icon apple"></i></span>
+            <span data-tooltip="VSCode"><i class="icon-vscode"></i></span>
+            <span data-tooltip="Learning Emacs!"><i class="icon-emacs"></i></span>
+            <span
+              data-tooltip="I have two polydactyl (extra thumbs!) cats at home."
+            ><em data-emoji="cat"></em
+                                  ></span>
+            <span
+              data-tooltip="Video games! Mainly Fortnite and Beat Saber these days."
+            ><em data-emoji="video_game"></em
+                                         ></span>
+            <span data-tooltip="Your resident coffee enthusiast."
+            ><em data-emoji="coffee"></em
+                                     ></span>
+          </div>
+        </div>
+
+        <div class="ui fluid card">
+          <div class="image">
+            <img
+              src="assets/headshots/jakestan.jpg"
+              alt="Jacob Stanley head shot"
+            />
+          </div>
+          <div class="content">
+            <div class="header">Jacob Stanley</div>
+            <div class="description">
+              <p><i class="icon envelope"></i>jakestan@umich.edu</p>
+            </div>
+          </div>
+          <div class="extra content">
+            <span data-tooltip="MacOS"><i class="icon apple"></i></span>
+            <span data-tooltip="Xcode"><i class="icon-xcode"></i></span>
+            <span data-tooltip="VS Code"><i class="icon-vscode"></i></span>
+            <span data-tooltip="I play tennis"
+            ><em data-emoji="tennis"></em
+                                     ></span>
+            <span
+              data-variation="wide fixed"
+              data-tooltip="My goal is to try every restaraunt in AA, I'm at 75 right now!!"
+            ><em data-emoji="cooking"></em
+                                      ></span>
+            <span
+              data-variation="wide fixed"
+              data-tooltip="Really into EDM, let me know if you have any recs!"
+            ><em data-emoji="notes"></em
+                                    ></span>
+          </div>
+        </div>
+
+        <div class="ui fluid card">
+          <div class="image">
+            <img
+              src="assets/headshots/yankevn.jpg"
+              alt="Kevin Yan head shot"
+            />
+          </div>
+          <div class="content">
+            <div class="header">Kevin Yan</div>
+            <div class="description">
+              <p><i class="icon envelope"></i>yankevn@umich.edu</p>
+            </div>
+          </div>
+          <div class="extra content">
+            <span data-tooltip="Windows"><i class="icon windows"></i></span>
+            <span data-tooltip="VS Code"><i class="icon-vscode"></i></span>
+            <span data-tooltip="Chess"
+            ><em data-emoji="chess_pawn"></em
+                                         ></span>
+            <span data-tooltip="Cat person with a cat allergy"
+            ><em data-emoji="cat"></em
+                                  ></span>
+            <span
+              data-tooltip="I sing with the Men's Glee Club and in an acapella group!"
+            ><em data-emoji="microphone"></em
+                                         ></span>
+            <span
+              data-tooltip="I play video games! Currently going through Kingdom Hearts."
+            ><em data-emoji="video_game"></em
+                                         ></span>
+            <span data-tooltip="I enjoy a tall glass of milk :)"
+            >&#x1F95B;</span
+                      >
+          </div>
+        </div>
+        --></div>
+        <!-- ui stackable cards -->
+        <div class="ui hidden section divider"></div>
+      </div>
+      <!-- ui text container -->
+    </div>
+
+
+    <!-- Practical Jokes -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="assets/js/halloween.js" async></script>
+    <script src="assets/js/aprilfools.js" async></script>
+
+    <script>
+      // Sidebar show and hide logic.
+      //
+      // On large screens, show the sidebar by default.  On small screens, hide it.
+      function isSmallScreen() {
+        return screen.width < 900;
+      }
+
+      function renderSidebar() {
+        $sidebar = $(".ui.sidebar");
+        $sidebar.sidebar({
+          dimPage: false,
+          transition: "overlay",
+          mobileTransition: "overlay",
+          exclusive: false,
+          closable: false,
+        });
+        $sidebar.sidebar("attach events", "#left-sidebar-toggle");
+        if (!isSmallScreen()) {
+          $sidebar.sidebar("toggle");
+        }
+      }
+
+      renderSidebar();
+    </script>
+
+    <script>
+      // Insert Google Calendar in <div id="calendar">
+      //
+      // REMINDER: update googleCalendarId each semester
+      //
+      // Uses the FullCalendar library and connects to Google Calendar
+      // https://fullcalendar.io/docs
+      // https://fullcalendar.io/docs/google-calendar
+      document.addEventListener("DOMContentLoaded", () => {
+        const calendarEl = document.getElementById("calendar");
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+          // Google Calendar API, DO NOT CHANGE
+          // https://fullcalendar.io/docs/google-calendar
+          googleCalendarApiKey: "AIzaSyAiEWXOLNCeznI7k6r0-taknkWGh0rcRwU",
+
+          // Google Calendar ID CHANGE THIS EACH SEMESTER
+          events: {
+            googleCalendarId:
+              "a3e67b5828a8e46212f9ebdc1d3e4c90bbeebfdabb1eb76afaa4810da0680815@group.calendar.google.com",
+          },
+
+          // Semester start and end date CHANGE THIS EACH SEMESTER
+          //
+          // Before semester begins, show the first week.  After the semester
+          // ends, show the last week.  Otherwise, show the current week.
+          initialDate: (function () {
+            const startDate = "2023-08-28"; // FIXME UPDATE
+            const endDate = "2023-12-15";
+            const today = new Date();
+            if (today < new Date(startDate)) {
+              return startDate;
+            }
+            if (today > new Date(endDate)) {
+              return endDate;
+            }
+          })(),
+
+          // Custom buttons to switch between office hours and lab calendars.
+          // We need these to define custom click callbacks to force event hiding.
+          // https://fullcalendar.io/docs/customButtons
+          customButtons: {
+            toggleOH: {
+              text: "OH",
+              click: () => {
+                calendar.changeView("_");
+                calendar.changeView(
+                  isSmallScreen() ? "timeGridOHDay" : "timeGridOHWeek",
+                );
+              },
+            },
+            toggleLecture: {
+              text: "Lecture",
+              click: () => {
+                calendar.changeView("_");
+                calendar.changeView(
+                  isSmallScreen()
+                    ? "timeGridLectureDay"
+                    : "timeGridLectureWeek",
+                );
+              },
+            },
+            toggleLabs: {
+              text: "Labs",
+              click: () => {
+                calendar.changeView("_");
+                calendar.changeView(
+                  isSmallScreen() ? "timeGridLabsDay" : "timeGridLabsWeek",
+                );
+              },
+            },
+            toggleAll: {
+              text: "All",
+              click: () => {
+                calendar.changeView("_");
+                calendar.changeView(
+                  isSmallScreen() ? "timeGridDay" : "timeGridWeek",
+                );
+              },
+            },
+          },
+
+          // Tool bar options.  Hide "today" button on mobile to save space.
+          // https://fullcalendar.io/docs/headerToolbar
+          headerToolbar: {
+            start: "toggleAll,toggleOH,toggleLecture,toggleLabs",
+            end: isSmallScreen() ? "prev,next" : "today prev,next",
+          },
+
+          // Custom views to switch between office hours and lab calendars.
+          // There are six, since we want different sizing for small screens.
+          // https://fullcalendar.io/docs/custom-view-with-settings
+          views: {
+            timeGridOHWeek: {
+              type: "timeGridWeek",
+            },
+
+            timeGridOHDay: {
+              type: "timeGridDay",
+            },
+
+            timeGridLectureWeek: {
+              type: "timeGridWeek",
+            },
+
+            timeGridLectureDay: {
+              type: "timeGridDay",
+            },
+
+            timeGridLabsWeek: {
+              type: "timeGridWeek",
+            },
+
+            timeGridLabsDay: {
+              type: "timeGridDay",
+            },
+
+            // Dummy view to force remounting on view change
+            // Workaround for: https://github.com/fullcalendar/fullcalendar/issues/5543
+            _: {
+              type: "list",
+            },
+          },
+
+          // View options
+          // https://fullcalendar.io/docs/timegrid-view
+          initialView: isSmallScreen() ? "timeGridDay" : "timeGridWeek",
+          allDaySlot: true,
+          allDayText: "",
+          nowIndicator: true,
+          weekends: false,
+
+          // Don't scroll, just show everything
+          slotMinTime: "08:00:00",
+          slotMaxTime: "21:00:00",
+          height: "auto",
+
+          // Selectively recolor and hide calendar events
+          // https://fullcalendar.io/docs/event-render-hooks
+          eventContent: setupEvent,
+
+          // Add click-for-popup to calendar events
+          // https://fullcalendar.io/docs/event-render-hooks
+          eventDidMount: addPopup,
+
+          // Prepare calendar events for a view change
+          // This function runs every time the view switches
+          // https://fullcalendar.io/docs/view-render-hooks
+          viewDidMount: changeEventView,
+
+          aspectRatio: isSmallScreen() ? 0.75 : 1.35,
+        });
+        calendar.render();
+
+        // Add label before buttons (But not on small screens because there isn't enough room)
+        if (!isSmallScreen()) {
+          $(".fc-toggleOH-button")
+            .parent()
+            .before(
+              '<div style="display: inline; vertical-align: middle;">Show:</div>',
+            );
+        }
+      });
+
+      function setupEvent(arg) {
+        // Remove events that are not in the current view and recolor if needed
+        if (filterEvent(arg)) {
+          recolorCalendarEvent(arg);
+        }
+      }
+
+      function changeEventView(arg) {
+        // Reset all events to 'display:auto' when the view changes.
+        // Change the opacity of the buttons to indicate selection.
+        const events = arg.view.calendar.getEvents();
+        events.forEach((e) => {
+          e.setProp("display", "auto");
+        });
+
+        const view = arg.view.type;
+        if (view.toLowerCase().includes("oh")) {
+          $(".fc-toggleOH-button").css("opacity", "1");
+          $(".fc-toggleLecture-button").css("opacity", "0.65");
+          $(".fc-toggleLabs-button").css("opacity", "0.65");
+          $(".fc-toggleAll-button").css("opacity", "0.65");
+        } else if (view.toLowerCase().includes("lecture")) {
+          $(".fc-toggleOH-button").css("opacity", "0.65");
+          $(".fc-toggleLecture-button").css("opacity", "1");
+          $(".fc-toggleLabs-button").css("opacity", "0.65");
+          $(".fc-toggleAll-button").css("opacity", "0.65");
+        } else if (view.toLowerCase().includes("labs")) {
+          $(".fc-toggleOH-button").css("opacity", "0.65");
+          $(".fc-toggleLecture-button").css("opacity", "0.65");
+          $(".fc-toggleLabs-button").css("opacity", "1");
+          $(".fc-toggleAll-button").css("opacity", "0.65");
+        } else {
+          $(".fc-toggleOH-button").css("opacity", "0.65");
+          $(".fc-toggleLecture-button").css("opacity", "0.65");
+          $(".fc-toggleLabs-button").css("opacity", "0.65");
+          $(".fc-toggleAll-button").css("opacity", "1");
+        }
+      }
+
+      function filterEvent(arg) {
+        // Filter events by type, return true/false to avoid recoloring invisible events
+        //
+        // arg.event has property 'display' that allows hiding specific events
+        const view = arg.view.type;
+        const title = arg.event.title;
+        if (view.toLowerCase().includes("oh")) {
+          if (
+            title.toLowerCase().includes("lab") ||
+            title.toLowerCase().includes("lecture")
+          ) {
+            arg.event.setProp("display", "none");
+            return false;
+          }
+        } else if (view.toLowerCase().includes("labs")) {
+          if (
+            title.toLowerCase().includes("office hours") ||
+            title.toLowerCase().includes("lecture")
+          ) {
+            arg.event.setProp("display", "none");
+            return false;
+          }
+          // Extra case for calendar events that use "OH"/"PH" instead of "office hours"/"proffice hours"
+          // (Ex. Labeling in-person vs. remote OH days with all-day events)
+          else if (title.includes("OH") || title.includes("PH")) {
+            arg.event.setProp("display", "none");
+            return false;
+          }
+        } else if (view.toLowerCase().includes("lecture")) {
+          if (
+            title.toLowerCase().includes("lab") ||
+            title.toLowerCase().includes("office hours")
+          ) {
+            arg.event.setProp("display", "none");
+            return false;
+          } else if (title.includes("OH") || title.includes("PH")) {
+            arg.event.setProp("display", "none");
+            return false;
+          }
+        }
+        return true;
+      }
+
+      function recolorCalendarEvent(arg) {
+        // Change calendar event colors based on string prefix
+        if (
+          arg.event.title.toLowerCase().includes("due") ||
+          arg.event.title.toLowerCase().includes("deadline") ||
+          arg.event.title.toLowerCase().includes("exam")
+        ) {
+          arg.backgroundColor = "#D39E00";
+          arg.borderColor = "#D39E00";
+        } else if (arg.event.title.toLowerCase().includes("lecture")) {
+          arg.backgroundColor = "#3D5B9A";
+          arg.borderColor = "#3D5B9A";
+        } else if (arg.event.title.toLowerCase().includes("lab")) {
+          arg.backgroundColor = "#3A87AD";
+          arg.borderColor = "#3A87AD";
+        } else if (
+          arg.event.title.toLowerCase().includes("proffice hours") ||
+          arg.event.title.includes("PH") // case-sensitive
+        ) {
+          arg.backgroundColor = "#428BCA";
+          arg.borderColor = "#428BCA";
+        } else if (
+          arg.event.title.toLowerCase().includes("office hours") ||
+          arg.event.title.includes("OH") // case-sensitive
+        ) {
+          arg.backgroundColor = "#BBDEFB";
+          arg.borderColor = "#BBDEFB";
+          arg.textColor = "#424242";
+        }
+      }
+
+      function addPopup(arg) {
+        // Add a popup to a calendar event
+        //
+        // arg.event.extendedProps contains extra information from the Google
+        // Calendar event, e.g., description and location.
+        const element = arg.el;
+        const location = arg.event.extendedProps.location || "";
+        const description = arg.event.extendedProps.description || "";
+
+        // Remove link to Google Calendar automatically added by FullCalendar
+        $(element).removeAttr("href");
+
+        // Add Popup to DOM, links in the location field are clickable
+        // https://semantic-ui.com/modules/popup.html#/usage
+        //
+        // NOTE: overflow:scroll avoids text spilling out of the popup on iOS.
+        let location_html = null;
+        if (location.toLowerCase().startsWith("http")) {
+          location_html = `<a href="${location}" target="_blank">${location}</a>`;
+        } else {
+          location_html = `${location}<br>${description}`;
+        }
+
+        $(element).popup({
+          on: "click",
+
+          // Prevent popups from getting destroyed when view changes
+          // https://fomantic-ui.com/modules/popup.html#/settings
+          observeChanges: false,
+
+          html: `
+         <div class="header">${arg.event.title}</div>
+         <div class="content" style="overflow:auto">${location_html}</div>
+       `,
+        });
+      }
+    </script>
+
+    <!-- 
+    We use an external third-party library to listen for "swipe" actions on
+    touchscreen devices (to show/hide the sidebar).
+    https://github.com/john-doherty/swiped-events
+  -->
+    <script src="assets/js/swiped-events.min.js" async></script>
+    <script>
+      // detect swipe events to show/hide sidebar.
+      document.addEventListener("swiped-left", () => $sidebar.sidebar("hide"));
+      document.addEventListener("swiped-right", () => $sidebar.sidebar("show"));
+    </script>
+  </body>
+</html>
